@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "QuickSort Demo";
+    var original = ViewBag.Original as int[];
+    var sorted = ViewBag.Sorted as int[];
+    var input = ViewBag.Input as string;
+}
+
+<h2>QuickSort Demo</h2>
+
+<form method="get" asp-controller="Home" asp-action="Index">
+    <label for="numbers">Enter numbers (comma, space, or semicolon separated):</label><br />
+    <input type="text" id="numbers" name="numbers" value="@input" style="width:400px;" />
+    <button type="submit">Sort</button>
+</form>
+
+@if (original != null && original.Length > 0)
+{
+    <h3>Before Sorting:</h3>
+    <p>@string.Join(", ", original)</p>
+    <h3>After Sorting:</h3>
+    <p>@string.Join(", ", sorted)</p>
+}
