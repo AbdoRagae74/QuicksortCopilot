@@ -1,7 +1,13 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using quicksort.Models;
+using System;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
+using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace quicksort.Controllers
 {
@@ -30,6 +36,9 @@ namespace quicksort.Controllers
         /// 4. Applies the QuickSort algorithm to the cloned array.
         /// 5. Passes both arrays and the input string to the view using ViewBag.
         /// </process>
+        /// 
+
+        
 
 
         public IActionResult Index(string numbers)
@@ -123,3 +132,53 @@ namespace quicksort.Controllers
         }
     }
 }
+
+/*
+Comparison: QuickSort vs. Other Sorting Algorithms
+        ---------------------------------------------------------------------------------------------------
+        QuickSort:
+            -Time Complexity: Best / Average O(n log n), Worst O(n^2)
+            -Space Complexity: O(log n)(in -place, due to recursion stack)
+            - Not stable(relative order of equal elements may change)
+            - Very fast in practice for large, in-memory arrays
+            - Performance can degrade to O(n^2) if pivot selection is poor (e.g., already sorted input)
+            - Can be improved with randomized or median-of-three pivot selection
+
+        Merge Sort:
+            -Time Complexity: O(n log n) in all cases
+            - Space Complexity: O(n)(requires additional array for merging)
+    -Stable(preserves order of equal elements)
+    - Preferred for linked lists or when stability is required
+    - Consistent performance, but higher memory usage
+
+
+Heap Sort:
+
+    -Time Complexity: O(n log n) in all cases
+    - Space Complexity: O(1)(in -place)
+    - Not stable
+    - Good for large datasets where memory usage is a concern
+    - Slightly slower than QuickSort in practice due to cache performance
+
+
+Bubble Sort, Insertion Sort, Selection Sort:
+
+    -Time Complexity: O(n ^ 2) in average and worst cases
+    - Space Complexity: O(1)(in -place)
+    - Simple to implement, but inefficient for large datasets
+
+    -Insertion Sort is efficient for small or nearly sorted arrays
+
+
+Summary:
+
+    -QuickSort is generally the fastest for large, in-memory arrays, but not stable.
+
+    - Merge Sort is stable and has consistent O(n log n) performance, but uses more memory.
+
+    - Heap Sort is in-place and O(n log n), but not stable and often slower than QuickSort.
+
+    - Simpler algorithms(Bubble, Insertion, Selection) are only suitable for small or nearly sorted data.
+
+===================================================================================================
+*/
